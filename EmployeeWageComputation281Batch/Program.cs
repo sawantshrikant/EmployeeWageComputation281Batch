@@ -5,7 +5,11 @@ namespace EmployeeWageComputation281Batch
     {
         static void Main(String[] args)
         {
+            
             Console.WriteLine("Welcome to Employee Wage Computation Problem ");
+            EmployeeAttendance employeeAttendance = new EmployeeAttendance();
+            employeeAttendance.attendance();
+            
 
         }
     }
