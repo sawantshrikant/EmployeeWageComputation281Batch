@@ -1,36 +1,52 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EmployeeWageComputation281Batch
 {
     internal class EmployeeAttendance
     {
-        const int IS_PRESENT = 1, WAGE_PER_HR = 20, NO_OF_HRS = 8;
-        public int attendance()
+        const int IS_PRESENT = 1;
+        const int WAGE_PER_HR = 20;
+        const int FULL_TIME_HRS = 8;
+        const int PART_TIME_HRS = 4;
+        const int IS_FULL_TIME = 1;
+        const int IS_PART_TIME = 2;
+
+        public int Attendance()
         {
             Random random = new Random();
-            int check = random.Next(0, 2);
-            if (check == IS_PRESENT)
-                Console.WriteLine("Employee Is Present");
-            else
-                Console.WriteLine("Employee Is Absent");
+            int check = random.Next(0, 3); // Generates random number between 0 and 2
             return check;
-           
         }
 
-        public void DailyWage(int name)
+        public void DailyWage(int attendance)
         {
             int wage = 0;
-            
-            if (name == IS_PRESENT)
-                wage = WAGE_PER_HR * NO_OF_HRS;
+            int workingHrs = 0;
+
+            if (attendance == IS_PRESENT)
+            {
+                int empType = new Random().Next(0, 3); // Generates random number between 0 and 2
+
+                if (empType == IS_FULL_TIME)
+                {
+                    Console.WriteLine("Employee Is Full-Time");
+                    workingHrs = FULL_TIME_HRS;
+                }
+                else if (empType == IS_PART_TIME)
+                {
+                    Console.WriteLine("Employee Is Part-Time");
+                    workingHrs = PART_TIME_HRS;
+                }
+                
+
+                wage = WAGE_PER_HR * workingHrs;
+            }
+            else
+            {
+                Console.WriteLine("Employee Is Absent");
+            }
+
             Console.WriteLine("Daily wage of an employee is: " + wage);
-
-           
         }
-
     }
 }

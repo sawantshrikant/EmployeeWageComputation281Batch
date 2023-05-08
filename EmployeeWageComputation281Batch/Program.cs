@@ -7,10 +7,12 @@ namespace EmployeeWageComputation281Batch
         {
             
             Console.WriteLine("Welcome to Employee Wage Computation Problem ");
-            EmployeeAttendance employeeAttendance = new EmployeeAttendance();
-            int result = employeeAttendance.attendance();
-            employeeAttendance.DailyWage(result);
-            
+            EmployeeAttendance employee = new EmployeeAttendance();
+
+            int attendance = employee.Attendance();
+            employee.DailyWage(attendance);
+
+            Console.ReadLine();
 
         }
     }
