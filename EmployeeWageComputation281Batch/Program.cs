@@ -8,7 +8,8 @@ namespace EmployeeWageComputation281Batch
             
             Console.WriteLine("Welcome to Employee Wage Computation Problem ");
             EmployeeAttendance employeeAttendance = new EmployeeAttendance();
-            employeeAttendance.attendance();
+            int result = employeeAttendance.attendance();
+            employeeAttendance.DailyWage(result);
             
 
         }
