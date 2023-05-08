@@ -14,7 +14,7 @@ namespace EmployeeWageComputation281Batch
         public int Attendance()
         {
             Random random = new Random();
-            int check = random.Next(0, 3); // Generates random number between 0 and 2
+            int check = random.Next(0, 3);
             return check;
         }
 
@@ -25,19 +25,22 @@ namespace EmployeeWageComputation281Batch
 
             if (attendance == IS_PRESENT)
             {
-                int empType = new Random().Next(0, 3); // Generates random number between 0 and 2
+                int empType = new Random().Next(0, 3);
 
-                if (empType == IS_FULL_TIME)
+                switch (empType)
                 {
-                    Console.WriteLine("Employee Is Full-Time");
-                    workingHrs = FULL_TIME_HRS;
+                    case IS_FULL_TIME:
+                        Console.WriteLine("Employee Is Full-Time");
+                        workingHrs = FULL_TIME_HRS;
+                        break;
+                    case IS_PART_TIME:
+                        Console.WriteLine("Employee Is Part-Time");
+                        workingHrs = PART_TIME_HRS;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Employee Type");
+                        break;
                 }
-                else if (empType == IS_PART_TIME)
-                {
-                    Console.WriteLine("Employee Is Part-Time");
-                    workingHrs = PART_TIME_HRS;
-                }
-                
 
                 wage = WAGE_PER_HR * workingHrs;
             }
