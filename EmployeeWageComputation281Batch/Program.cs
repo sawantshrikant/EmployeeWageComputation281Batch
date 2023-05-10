@@ -1,18 +1,15 @@
-﻿using System;
+﻿using EmployeeWageComputation281Batch;
 
-namespace EmployeeWageComputation281Batch
+public class Program
 {
-    public class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Welcome to Employee Wage Computation Problem");
-            EmployeeAttendance employee = new EmployeeAttendance();
+        Console.WriteLine("Welcome to Employee Wage Computation Problem");
+        EmployeeAttendance employee = new EmployeeAttendance();
 
-            int attendance = employee.Attendance();
-            employee.DailyWage(attendance);
+        int attendance = employee.Attendance();
+        employee.DailyWage(attendance);
 
-            Console.ReadLine();
-        }
+        Console.ReadLine();
     }
 }
