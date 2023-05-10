@@ -4,12 +4,13 @@ namespace EmployeeWageComputation281Batch
 {
     internal class EmployeeAttendance
     {
-        const int IS_PRESENT = 1;
-        const int WAGE_PER_HR = 20;
-        const int FULL_TIME_HRS = 8;
-        const int PART_TIME_HRS = 4;
-        const int IS_FULL_TIME = 1;
-        const int IS_PART_TIME = 2;
+        private const int IS_PRESENT = 1;
+        private const int WAGE_PER_HR = 20;
+        private const int FULL_TIME_HRS = 8;
+        private const int PART_TIME_HRS = 4;
+        private const int IS_FULL_TIME = 1;
+        private const int IS_PART_TIME = 2;
+        private const int WORKING_DAYS = 20;
 
         public int Attendance()
         {
@@ -20,36 +21,43 @@ namespace EmployeeWageComputation281Batch
 
         public void DailyWage(int attendance)
         {
-            int wage = 0;
+            int totalWage = 0;
             int workingHrs = 0;
 
             if (attendance == IS_PRESENT)
             {
-                int empType = new Random().Next(0, 3);
-
-                switch (empType)
+                for (int day = 1; day <= WORKING_DAYS; day++)
                 {
-                    case IS_FULL_TIME:
-                        Console.WriteLine("Employee Is Full-Time");
-                        workingHrs = FULL_TIME_HRS;
-                        break;
-                    case IS_PART_TIME:
-                        Console.WriteLine("Employee Is Part-Time");
-                        workingHrs = PART_TIME_HRS;
-                        break;
-                    default:
-                        Console.WriteLine("Invalid Employee Type");
-                        break;
-                }
+                    int empType = new Random().Next(0, 3);
 
-                wage = WAGE_PER_HR * workingHrs;
+                    switch (empType)
+                    {
+                        case IS_FULL_TIME:
+                            Console.WriteLine("Employee Is Full-Time");
+                            workingHrs = FULL_TIME_HRS;
+                            break;
+                        case IS_PART_TIME:
+                            Console.WriteLine("Employee Is Part-Time");
+                            workingHrs = PART_TIME_HRS;
+                            break;
+                        default:
+                            Console.WriteLine("Invalid Employee Type");
+                            break;
+                    }
+
+                    int wage = WAGE_PER_HR * workingHrs;
+                    Console.WriteLine("Daily wage of an employee on day " + day + " is: " + wage);
+                    totalWage += wage;
+                }
             }
             else
             {
                 Console.WriteLine("Employee Is Absent");
             }
 
-            Console.WriteLine("Daily wage of an employee is: " + wage);
+            Console.WriteLine("Total wage for the month is: " + totalWage);
         }
     }
+
+    
 }
